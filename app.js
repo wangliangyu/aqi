@@ -44,4 +44,9 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3000);
+
+process.on('uncaughtException', function (err) {
+  console.error('exception caught', err);
+});
+
 module.exports = app;
