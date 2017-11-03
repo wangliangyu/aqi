@@ -1,7 +1,6 @@
-var log4js = require('log4js');
+const log4js = require('log4js');
 
 log4js.configure({
-
     appenders: [
         {
             type: 'console',
@@ -14,7 +13,6 @@ log4js.configure({
             maxLogSize: 20480,
             backups: 3,
             category: 'dateFileLog'
-
         }//日期文件格式
     ],
     replaceConsole: true,   //替换console.log
@@ -24,11 +22,9 @@ log4js.configure({
     }
 });
 
-
-var dateFileLog = log4js.getLogger('dateFileLog');
-var consoleLog = log4js.getLogger('console');
+const dateFileLog = log4js.getLogger('dateFileLog');
+const consoleLog = log4js.getLogger('console');
 exports.logger = dateFileLog;
-
 
 exports.use = function(app) {
     app.use(log4js.connectLogger(consoleLog, {level:'INFO', format:':method :url'}));

@@ -1,0 +1,8 @@
+{
+  "apps":[
+    {
+      "script":"./bin/www",
+      "name":"aqi"
+    }
+  ]
+}

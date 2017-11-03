@@ -1,3 +1,0 @@
-mudule.exports = {
-
-};
