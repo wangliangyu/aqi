@@ -8,7 +8,7 @@ const index = require('./routes/index');
 const wechat = require('./routes/wechat');
 const aqi = require('./routes/aqi');
 
-require('./lib/aqi');
+require('./lib/aqi').aqiGetter();
 
 const app = express();
 

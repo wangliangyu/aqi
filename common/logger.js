@@ -1,31 +1,20 @@
 const log4js = require('log4js');
 
 log4js.configure({
-    appenders: [
-        {
-            type: 'console',
-            category: "console"
-        }, //控制台输出
-        {
-            type: "file",
-            filename: 'logs/access.log',
-            pattern: "_yyyy-MM-dd",
-            maxLogSize: 20480,
-            backups: 3,
-            category: 'dateFileLog'
-        }//日期文件格式
-    ],
-    replaceConsole: true,   //替换console.log
-    levels:{
-        dateFileLog: 'debug',
-        console: 'debug'
+    appenders: {
+        cheese: {
+            type: 'file',
+            filename: 'logs/cheese.log',
+            pattern: "-dd.log",
+            alwaysIncludePattern:true
+        }
+    },
+    categories: {
+        default: {
+            appenders: ['cheese'],
+            level: 'info'
+        }
     }
 });
 
-const dateFileLog = log4js.getLogger('dateFileLog');
-const consoleLog = log4js.getLogger('console');
-exports.logger = dateFileLog;
-
-exports.use = function(app) {
-    app.use(log4js.connectLogger(consoleLog, {level:'INFO', format:':method :url'}));
-};
+exports.logger = log4js.getLogger('cheese');

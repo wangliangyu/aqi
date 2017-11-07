@@ -1,7 +1,7 @@
-var mongodb = require('../common/mongodb');
-var Schema = mongodb.Schema;
+const mongodb = require('../common/mongodb');
+const Schema = mongodb.Schema;
 
-var PM10_Schema = new Schema({
+const PM10_Schema = new Schema({
     aqi: Number,
     area: String,
     pm10: Number,
