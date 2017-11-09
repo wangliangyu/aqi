@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const logger = require('./logger').logger;
+const config = require('../config');
 
-mongoose.connect('mongodb://panchen:pc565390523@localhost:27017/aqi',{
+mongoose.connect(config.mongodb, {
     useMongoClient: true
 });
 

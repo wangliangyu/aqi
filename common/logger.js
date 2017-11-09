@@ -2,15 +2,20 @@ const log4js = require('log4js');
 
 log4js.configure({
     appenders: {
+        out: { type: 'console' },
         cheese: {
-            type: 'file',
+            type: 'dateFile',
             filename: 'logs/cheese.log',
-            pattern: "-dd.log",
-            alwaysIncludePattern:true
+            pattern: '-yyyy-MM-dd',
+            alwaysIncludePattern: true
         }
     },
     categories: {
         default: {
+            appenders: ['out'],
+            level: 'debug'
+        },
+        cheese: {
             appenders: ['cheese'],
             level: 'info'
         }
