@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const PM10 = require('../dto/pm10');
+const RANK = require('../dto/aqi_ranking');
 
-router.get('/pm10', function(req, res) {
-    let condition = {"position_name":"仙林大学城"};
-    let fields = "aqi pm10 position_name time_point";
-    PM10.find(condition, fields, function (err, result) {
+router.get('/rank', function(req, res) {
+    let condition = {time_point: '2017-11-30T16:00:00Z'};
+    let fields = "aqi pm2_5 position_name time_point";
+    RANK.find(condition, fields, function (err, result) {
         if(err){
             return res.json(err);
         }

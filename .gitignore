@@ -1,0 +1,9 @@
+#file
+*.sw*
+.DS_Store
+/dao/nanjing.json
+
+#directory
+node_modules/*
+.idea/*
+/public/love/*

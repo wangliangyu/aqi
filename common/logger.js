@@ -3,9 +3,9 @@ const log4js = require('log4js');
 log4js.configure({
     appenders: {
         out: { type: 'console' },
-        cheese: {
+        aqi: {
             type: 'dateFile',
-            filename: 'logs/cheese.log',
+            filename: 'logs/aqi.log',
             pattern: '-yyyy-MM-dd',
             alwaysIncludePattern: true
         }
@@ -15,11 +15,11 @@ log4js.configure({
             appenders: ['out'],
             level: 'debug'
         },
-        cheese: {
-            appenders: ['cheese'],
+        aqi: {
+            appenders: ['aqi'],
             level: 'info'
         }
     }
 });
 
-exports.logger = log4js.getLogger('cheese');
+exports.logger = log4js.getLogger('aqi');
