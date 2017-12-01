@@ -3,7 +3,7 @@ const logger = require('./logger').logger;
 const config = require('../config');
 
 mongoose.connect(config.mongodb, {
-    useMongoClient: true
+	useMongoClient: true
 });
 
 mongoose.Promise = global.Promise;
@@ -11,15 +11,15 @@ mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 
 mongoose.connection.on("error", function (error) {
-    logger.error("数据库连接失败：" + error);
+	logger.error("数据库连接失败：" + error);
 });
 
 mongoose.connection.on("connected", function () {
-    logger.info('Mongoose connected');
+	logger.info('Mongoose connected');
 });
 
 mongoose.connection.on('disconnected', function () {
-    logger.error('Mongoose disconnected');
+	logger.error('Mongoose disconnected');
 });
 
 module.exports = mongoose;

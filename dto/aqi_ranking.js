@@ -19,7 +19,7 @@ const RANK_Schema = new Schema({
     so2: Number,
     so2_24h: Number,
     level: String,
-    // primary_pollutant: String,
+    primary_pollutant: String,
     quality: String,
     time_point: String
 });
