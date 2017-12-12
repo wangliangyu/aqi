@@ -4,7 +4,7 @@ const data = require('../dao/nanjing.json');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.json(data);
+	res.json('10086');
 });
 
 module.exports = router;

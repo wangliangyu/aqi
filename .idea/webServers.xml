@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="e7813f44-bda8-4a02-b53c-2d54f1e31a5d" name="aqi" url="http://123.207.187.100">
-        <fileTransfer host="123.207.187.100" port="22" rootFolder="/home/panchen/workspace" accessType="SFTP">
+        <fileTransfer host="123.207.187.100" port="22" rootFolder="/home/panchen/workspace/aqi" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

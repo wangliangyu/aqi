@@ -13,4 +13,9 @@ router.get('/rank', function (req, res) {
 	});
 });
 
+const data = require('../dao/nanjing.json');
+router.get('/nanjing', function (req, res, next) {
+	res.json(data);
+});
+
 module.exports = router;

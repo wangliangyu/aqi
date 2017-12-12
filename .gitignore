@@ -6,4 +6,4 @@
 #directory
 node_modules/*
 .idea/*
-/public/love/*
+/public/*
