@@ -3,7 +3,8 @@ const logger = require('./logger').logger;
 const config = require('../config');
 
 mongoose.connect(config.mongodb, {
-	useMongoClient: true
+	useMongoClient: true,
+	poolSize: 10
 });
 
 mongoose.Promise = global.Promise;

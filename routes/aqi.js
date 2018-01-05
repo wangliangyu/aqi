@@ -1,21 +1,51 @@
 const express = require('express');
 const router = express.Router();
 const RANK = require('../dto/aqi_ranking');
+const ALL = require('../dto/all_cities');
+const STATION = require('../dto/station');
 
-router.get('/rank', function (req, res) {
-	let condition = {time_point: '2017-11-30T16:00:00Z'};
-	let fields = "aqi pm2_5 position_name time_point";
-	RANK.find(condition, fields, function (err, result) {
-		if (err) {
-			return res.json(err);
+router.get('/station', function (req, res) {
+	let city = req.query.city;
+
+	STATION.find({area: city}, function (err, result) {
+		if(err){
+			return res.end('query stations failed', err);
 		}
-		res.json(result);
+		if(!Object.is(0, result.length)){
+			res.json(result[0].stations);
+		}else{
+			res.json(result);
+		}
 	});
 });
 
-const data = require('../dao/nanjing.json');
-router.get('/nanjing', function (req, res, next) {
-	res.json(data);
+router.get('/', function (req, res) {
+	let city = req.query.city;
+	let station = req.query.station;
+	let startDate = req.query.startDate;
+	let endDate = req.query.endDate;
+
+	if(!city || !station || !startDate || !endDate){
+		return res.json({err: '参数异常'});
+	}
+
+	let conditions = {
+		area: city,
+		position_name: station,
+		time_point:{
+			$gte: startDate,
+			$lte: endDate
+		}
+	};
+
+	ALL.find(conditions, function (err, result) {
+		if(err){
+			return res.end('query aqi failed', err);
+		}
+
+		res.json(result);
+	});
+
 });
 
 module.exports = router;

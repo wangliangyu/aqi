@@ -7,7 +7,7 @@ const ALL_Schema = new Schema({
 	co: Number,
 	co_24h: Number,
 	no2: Number,
-	no_24h: Number,
+	no2_24h: Number,
 	o3: Number,
 	o3_24h: Number,
 	o3_8h: Number,
